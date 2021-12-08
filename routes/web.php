@@ -16,17 +16,19 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home2');
 });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('/Account', [App\Http\Controllers\UserController::class, 'edit'])->name('Account');
-
-Route::post('/update', [App\Http\Controllers\UserController::class, 'update'])->name('update');
-
+  
 // Route::get('/Account', function () {
 //     return view('account');
 // });
+Route::group(['middleware'=>['UserAuth']],function(){
+    Route::get('/Account', [App\Http\Controllers\UserController::class, 'edit'])->name('Account');
+
+   Route::post('/update', [App\Http\Controllers\UserController::class, 'update'])->name('update');
+
+});
