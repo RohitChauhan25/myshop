@@ -15,21 +15,11 @@ class CreateProductReviewsTable extends Migration
     {
         Schema::create('product_reviews', function (Blueprint $table) {
             $table->id();
-            
-            // $table->unsignedBigInteger('product_id');
-            // $table->foreign('product_id')->references('id')->on('products');
-
             $table->foreignId('product_id')->constrained('products');
-
-            // $table->unsignedBigInteger('user_id');
-            // $table->foreign('user_id')->references('id')->on('users');
             $table->foreignId('user_id')->constrained('users');
-
-            // $table->unsignedBigInteger('order_id');
-            // $table->foreign('order_id')->references('id')->on('orders');
             $table->foreignId('order_id')->constrained('orders');
             $table->string('rating');
-            $table->string('review');
+            $table->string('review')->nullable();
             $table->timestamps();
         });
     }

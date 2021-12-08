@@ -15,17 +15,12 @@ class CreatePaymentsTable extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->integer('amount');
-            // $table->unsignedBigInteger('product_id');
-            // $table->foreign('product_id')->references('id')->on('products');
+            $table->string('payment_id');
+            $table->float('price', 8, 2);
+            $table->foreignId('customer_id')->constrained('users');
+            $table->foreignId('vendor_id')->constrained('users');
             $table->foreignId('product_id')->constrained('products');
-
-            // $table->unsignedBigInteger('order_id');
-            // $table->foreign('order_id')->references('id')->on('orders');
-            $table->foreignId('order_id')->constrained('orders');
-
-            $table->unsignedBigInteger('trans_id');
-            $table->string('status');
+            $table->enum('status', ['Paid', 'Failed', 'Cancelled']);
             $table->timestamps();
             
         });
