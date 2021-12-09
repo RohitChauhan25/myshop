@@ -29,7 +29,7 @@
     </fieldset>
     <fieldset class="wrap-input ">
     <label class="remember-field">Password * </label>
-    <input name="password" id="frm-reg-pass" value="forever" type="password">
+    <input name="password" id="frm-reg-pass" placeholder="Password"  type="password">
     
     </fieldset>
     <fieldset class="wrap-input ">
