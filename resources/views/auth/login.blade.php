@@ -1,14 +1,9 @@
-@include('header')
-<main id="main" class="main-site left-sidebar">
+@extends('layouts.customer')
 
+@section('title', 'Login')
+
+@section('content')
     <div class="container">
-
-        <div class="wrap-breadcrumb">
-            <ul>
-                <li class="item-link"><a href="#" class="link">home</a></li>
-                <li class="item-link"><span>login</span></li>
-            </ul>
-        </div>
         <div class="row">
             <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12 col-md-offset-3">
                 <div class=" main-content-area">
@@ -22,6 +17,9 @@
                                 <fieldset class="wrap-input">
                                     <label for="frm-login-uname">Email Address:</label>
                                     <input type="text" id="frm-login-uname" name="email" placeholder="Type your email address">
+                                    @error('email')
+                                        <span for="email-error" class="error-messages">{{ $message }}</span>
+                                    @enderror
                                 </fieldset>
                                 <fieldset class="wrap-input">
                                     <label for="frm-login-pass">Password:</label>
@@ -42,6 +40,5 @@
             </div>
         </div><!--end row-->
 
-    </div><!--end container-->
-
-</main>
+    </div>
+@endsection

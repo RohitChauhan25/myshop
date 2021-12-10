@@ -18,26 +18,7 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'phone_no',
-        'address_1',
-        'address_2',
-        'city_id',
-        'state_id',
-        'country_id',
-        'zip_code',
-        'profile_pic',
-        'status',
-        'role_id',
-
-
-
-
-
-
-
+        'name', 'email', 'password', 'phone_no', 'address_1', 'address_2', 'city_id', 'state_id', 'country_id', 'zip_code', 'profile_pic', 'status', 'role_id'
     ];
 
     /**
@@ -58,4 +39,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class, 'role_id', 'id');
+    }
 }
