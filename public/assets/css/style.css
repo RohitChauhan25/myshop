@@ -7161,3 +7161,15 @@ background-color: #888888;
 	margin-bottom: 65px;
 	padding-left: 40px;
 }
+
+/* Custom CSS */
+
+#main .container {
+    margin-top: 50px;
+}
+
+span.error-messages {
+    color: red;
+    font-size: 12px;
+    font-weight: 600;
+}
