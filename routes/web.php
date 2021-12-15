@@ -22,13 +22,18 @@ Route::get('logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout
 
 Auth::routes();
 
+Route::get('products', [\App\Http\Controllers\ProductController::class, 'index'])->name('products');
+
 Route::middleware('auth')->group(function() {
 
     // Admin routes
     Route::prefix('admin/')->name('admin.')->group(function() {
         Route::get('dashboard', [\App\Http\Controllers\AdminController::class, 'dashboard'])->name('dashboard');
     });
-    Route::get('dashboard', [\App\Http\Controllers\AdminController::class, 'dashboard'])->name('dashboard');
+
+
+    // Customer routes
+
 });
 
 
